@@ -1,0 +1,223 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 540px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-content {
+    width: 92%;
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5em;
+    box-sizing: border-box;
+}
+
+/* Text styles */
+.text-content {
+    font-family: "Courier New", Courier, monospace;
+    color: #b0b0b0;
+    font-size: clamp(13px, 2vw, 18px);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto 0.5em auto;
+    min-height: 80px;
+    padding: 0 10px;
+}
+
+.text-content::before {
+    content: "Привези тепло, которое ты найдёшь там.\AОно здесь очень нужно.";
+    white-space: pre-line;
+    display: block;
+}
+
+/* Track name */
+.track-name {
+    color: #e0e0e0;
+    font-size: clamp(15px, 2vw, 22px);
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+/* Player Controls */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.play-button, .pause-button {
+    background: rgba(80,80,80,0.15);
+    border: none;
+    color: #b0b0b0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s cubic-bezier(.4,2,.6,1);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+    padding: 0;
+}
+
+.play-button:hover, .pause-button:hover {
+    color: #fff;
+    background: rgba(120,120,120,0.25);
+    transform: scale(1.08);
+}
+
+.play-button svg, .pause-button svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+    margin: auto;
+}
+
+.progress-bar {
+    width: 180px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 1;
+    min-width: 90px;
+    margin-left: 10px;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #6ee7ff 0%, #a685ff 100%);
+    transition: width 0.1s linear;
+}
+
+audio {
+    display: none;
+}
+
+/* Responsive scaling */
+@media (min-width: 900px) {
+    .container {
+        max-width: 540px;
+        min-height: 520px;
+        padding: 3vw 2vw;
+        gap: 3em;
+    }
+    .text-content {
+        font-size: clamp(20px, 2vw, 36px);
+    }
+    .track-name {
+        font-size: clamp(18px, 2vw, 26px);
+    }
+    .player-controls {
+        max-width: 420px;
+    }
+    .progress-bar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 18px 2vw;
+        gap: 24px;
+    }
+    .text-content {
+        font-size: clamp(15px, 4vw, 22px);
+        padding: 0 4vw;
+    }
+    .track-name {
+        font-size: clamp(13px, 3vw, 18px);
+    }
+    .player-controls {
+        max-width: 98vw;
+    }
+    .progress-bar {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px 0;
+        gap: 16px;
+        min-height: 90vh;
+    }
+    .text-content {
+        font-size: clamp(13px, 4vw, 18px);
+        padding: 0 2vw;
+    }
+    .track-name {
+        font-size: clamp(12px, 3vw, 16px);
+    }
+    .player-controls {
+        max-width: 98vw;
+    }
+    .progress-bar {
+        width: 90px;
+    }
+}

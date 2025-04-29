@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasha Site Song</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-content"></div>
+        <div class="track-name">Nautilus Waves</div>
+        <div class="player-controls">
+            <button id="playButton" class="play-button">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                </svg>
+            </button>
+            <button id="pauseButton" class="pause-button" style="display: none;">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/>
+                </svg>
+            </button>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+    <audio id="audioPlayer" src="assets/music/Dashe_v3_Master.wav" loop></audio>
+    <script src="js/main.js"></script>
+</body>
+</html> 
